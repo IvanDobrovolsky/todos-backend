@@ -5,7 +5,9 @@ module.exports = (server) => {
         method: 'GET',
         path:'/api/tasks',
         handler: (request, reply) => {
-            return reply({data: dataService.getAllTasks()});
+            dataService.getAllTasks()
+                .then(data => reply({data}))
+                .catch(error => reply({error}));
         }
     });
 
@@ -15,10 +17,11 @@ module.exports = (server) => {
         handler: (request, reply) => {
             const { taskId } = request.params;
 
-            return reply({data: dataService.getTaskById(taskId)});
+            dataService.getTaskById(taskId)
+                .then(data => reply({data}))
+                .catch(error => reply({error}));
         }
     });
-
 
     server.route({
         method: 'POST',
@@ -26,10 +29,9 @@ module.exports = (server) => {
         handler: (request, reply) => {
             const { payload } = request;
 
-            dataService.addNewTask(payload);
-
-            return reply({success: true})
-                .code(201);
+            dataService.addNewTask(payload)
+                .then(data => reply({status: 201, data}))
+                .catch(error => reply({error}));
         }
     });
 
@@ -39,10 +41,10 @@ module.exports = (server) => {
         handler: (request, reply) => {
             const { taskId } = request.params;
 
-            dataService.removeTask(taskId);
-
-            return reply({success: true})
-                .code(200);
+            dataService
+                .removeTask(taskId)
+                .then(data => reply({status: 200, data}))
+                .catch(error => reply({error}));
         }
     });
 
@@ -53,10 +55,10 @@ module.exports = (server) => {
             const { taskId } = request.params;
             const { payload } = request;
 
-            dataService.updateTask(taskId, payload);
-
-            return reply({success: true, updated: dataService.getTaskById(taskId)})
-                .code(200);
+            dataService
+                .updateTask(taskId, payload)
+                .then(updated => reply({status: 200, updated: payload}))
+                .catch(error => reply({error}));
         }
     });
 };

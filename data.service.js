@@ -41,29 +41,64 @@ const tasks = [
 
 
 function addNewTask(task) {
-    tasks.push(task);
+    return new Promise((resolve, reject) => {
+
+        if (typeof task.id === 'undefined') {
+            reject('Invalid task object format!');
+            return;
+        }
+
+        tasks.push(task);
+        resolve(tasks);
+    });
+
 }
 
 function updateTask(id, task) {
-    const index = tasks.findIndex(item => item.id == id);
+    return new Promise((resolve, reject) => {
+        const index = tasks.findIndex(item => item.id == id);
 
-    tasks[index] = task;
+        if (index < 0) {
+            reject(`Cannot find a task with id ${id}!`);
+            return;
+        }
+
+        tasks[index] = task;
+        resolve(task);
+    });
 }
 
 function removeTask(id) {
-    const index = tasks.findIndex(item => item.id == id);
+    return new Promise((resolve, reject) => {
+        const index = tasks.findIndex(item => item.id == id);
 
-    tasks.splice(index, 1);
+        if (index < 0) {
+            reject(`Cannot find a task with id ${id}!`);
+            return;
+        }
+
+        tasks.splice(index, 1);
+        resolve(tasks);
+    });
 }
 
 function getAllTasks() {
-    return tasks;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(tasks), 1000);
+    });
 }
 
 function getTaskById(id) {
-    const index = tasks.findIndex(item => item.id == id);
+    return new Promise((resolve, reject) => {
+        const index = tasks.findIndex(item => item.id == id);
 
-    return tasks[index];
+        if (index < 0) {
+            reject(`Cannot find a task with id ${id}!`);
+            return;
+        }
+
+        resolve(tasks[index]);
+    });
 }
 
 module.exports = function () {
