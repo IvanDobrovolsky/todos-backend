@@ -1,0 +1,27 @@
+{
+  "name": "todos-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanDobrovolsky/todos-backend.git"
+  },
+  "keywords": [
+    "node.js",
+    "javascript",
+    "hapi.js",
+    "express.js",
+    "koa.js",
+    "meteor.js"
+  ],
+  "author": "Ivan Dobrovolskyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanDobrovolsky/todos-backend/issues"
+  },
+  "homepage": "https://github.com/IvanDobrovolsky/todos-backend#readme"
+}
