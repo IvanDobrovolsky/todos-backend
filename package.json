@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "express-server": "PORT=${PORT}; PORT=$PORT node ./express/server.js"
+    "express-server": "PORT=${PORT}; PORT=$PORT node ./express/server.js",
+    "hapi-server": "PORT=${PORT}; PORT=$PORT node ./hapi/server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/IvanDobrovolsky/todos-backend#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "hapi": "^16.4.3"
   }
 }
