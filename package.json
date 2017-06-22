@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "express-server": "PORT=${PORT}; PORT=$PORT node ./express/server.js",
+    "express-server-cluster": "PORT=${PORT}; PORT=$PORT node ./express-cluster/server.js",
     "hapi-server": "PORT=${PORT}; PORT=$PORT node ./hapi/server.js"
   },
   "repository": {
@@ -28,6 +29,7 @@
   "homepage": "https://github.com/IvanDobrovolsky/todos-backend#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cluster": "^0.7.7",
     "express": "^4.15.3",
     "hapi": "^16.4.3"
   }
