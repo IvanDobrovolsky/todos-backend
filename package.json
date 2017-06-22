@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "express-server": "PORT=${PORT}; PORT=$PORT node ./express/server.js",
     "express-server-cluster": "PORT=${PORT}; PORT=$PORT node ./express-cluster/server.js",
-    "hapi-server": "PORT=${PORT}; PORT=$PORT node ./hapi/server.js"
+    "hapi-server": "PORT=${PORT}; PORT=$PORT node ./hapi/server.js",
+    "koa-server": "PORT=${PORT}; PORT=$PORT node ./koa/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,9 @@
     "body-parser": "^1.17.2",
     "cluster": "^0.7.7",
     "express": "^4.15.3",
-    "hapi": "^16.4.3"
+    "hapi": "^16.4.3",
+    "koa": "2.0.0-alpha.3",
+    "koa-bodyparser": "3.0.0",
+    "koa-router": "7.0.1"
   }
 }
